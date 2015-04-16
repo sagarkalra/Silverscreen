@@ -34,7 +34,7 @@
         // Add the overlay div
         $('body').append(
             '<div id="silverScreen">' +
-            '<div class="close" style="padding:5px;">' +
+            '<div class="' + settings.exitElement.replace('.', '') + '" style="padding:5px;">' +
             '<a class="button grey-btn2" style="float:right;" href="javascript:void(0);">CLOSE</a></div>' +
             '<div class="silverScreen-content" style="opacity:0">' +
             '</div></div>');
@@ -96,6 +96,10 @@
                 window.scroll(0, 0);
             }
         });
+
+        $.fn.silverScreen.close = function() {
+            $('#silverScreen ' + settings.exitElement).click();
+        };
 
         // Returns the jQuery object to allow for chainability.  
         return this;
